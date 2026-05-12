@@ -2,8 +2,3 @@ node_modules/
 .env
 .git/
 *.log
-notas.txt
-CAMBIOS_REALIZADOS.md
-DEPLOYMENT_EC2.md
-SOLUCION_COMPLETA_ACTIVIDAD.md
-tienda-perritos.pem
