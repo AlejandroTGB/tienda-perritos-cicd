@@ -130,7 +130,7 @@ app.delete("/api/productos/:id", async (req, res) => {
 
 // Endpoint de salud
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "Backend de tienda de perritos en ejecucion.", version: "2.0 - evidencia de cambios CI/CD" });
+  res.json({ status: "ok", message: "Backend de tienda de perritos en ejecución." });
 });
 
 // Iniciar servidor
