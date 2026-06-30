@@ -18,7 +18,9 @@ spec:
           image: {{ECR_URL}}/tienda-frontend:eks-v1
           ports:
             - containerPort: 80
-
+          env:
+            - name: BACKEND_HOST
+              value: "tienda-backend"
           # Se agrega Resource para que Metrics Server calcule el % de CPU y Memoria para escalar 
           resources:
             requests:
