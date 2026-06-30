@@ -5,6 +5,9 @@ node_modules/
 .env
 .env.*
 
+# Credenciales AWS Academy (NUNCA al repo)
+credentials.txt
+
 # Logs
 *.log
 npm-debug.log*

@@ -29,11 +29,11 @@ jobs:
         run: |
           cd frontend
           docker build -t tienda-frontend .
-          docker tag tienda-frontend:latest ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
-          docker push ${{ secrets.ECR_REPO_URL_FRONTEND }}:latest
+          docker tag tienda-frontend:latest ${{ secrets.ECR_REPO_URL_FRONTEND }}:eks-v1
+          docker push ${{ secrets.ECR_REPO_URL_FRONTEND }}:eks-v1
 
       - name: Deploy a EKS via kubectl
         run: |
-          aws eks update-kubeconfig --name tienda-perritos --region ${{ secrets.AWS_REGION }}
-          kubectl rollout restart deployment/frontend
-          kubectl rollout status deployment/frontend --timeout=120s
+          aws eks update-kubeconfig --name devopseks --region ${{ secrets.AWS_REGION }}
+          kubectl rollout restart deployment/tienda-frontend -n tienda
+          kubectl rollout status deployment/tienda-frontend -n tienda --timeout=120s

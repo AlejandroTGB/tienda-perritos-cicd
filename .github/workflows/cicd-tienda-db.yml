@@ -29,11 +29,11 @@ jobs:
         run: |
           cd db
           docker build -t tienda-db .
-          docker tag tienda-db:latest ${{ secrets.ECR_REPO_URL_DB }}:latest
-          docker push ${{ secrets.ECR_REPO_URL_DB }}:latest
+          docker tag tienda-db:latest ${{ secrets.ECR_REPO_URL_DB }}:eks-v1
+          docker push ${{ secrets.ECR_REPO_URL_DB }}:eks-v1
 
       - name: Deploy a EKS via kubectl
         run: |
-          aws eks update-kubeconfig --name tienda-perritos --region ${{ secrets.AWS_REGION }}
-          kubectl rollout restart statefulset/db
-          kubectl rollout status statefulset/db --timeout=180s
+          aws eks update-kubeconfig --name devopseks --region ${{ secrets.AWS_REGION }}
+          kubectl rollout restart deployment/tienda-db -n tienda
+          kubectl rollout status deployment/tienda-db -n tienda --timeout=180s
