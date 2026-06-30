@@ -149,7 +149,7 @@ app.delete("/api/productos/:id", async (req, res) => {
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
-    message: "Backend de tienda de perritos en ejecución. - CI/CD v2",
+    message: "Backend de tienda de perritos en ejecución. - CI/CD v3",
   });
 });
 
